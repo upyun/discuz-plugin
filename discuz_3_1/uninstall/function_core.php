@@ -196,9 +196,9 @@ function fsocketopen($hostname, $port = 80, &$errno, &$errstr, $timeout = 15) {
 	return $fp;
 }
 
-function dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE, $position = 0) {
+function dfsockopen($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCODE', $allowcurl = TRUE, $position = 0, $files = array()) {
 	require_once libfile('function/filesock');
-	return _dfsockopen($url, $limit, $post, $cookie, $bysocket, $ip, $timeout, $block, $encodetype, $allowcurl, $position);
+	return _dfsockopen($url, $limit, $post, $cookie, $bysocket, $ip, $timeout, $block, $encodetype, $allowcurl, $position, $files);
 }
 
 function dhtmlspecialchars($string, $flags = null) {
@@ -417,7 +417,7 @@ function avatar($uid, $size = 'middle', $returnsrc = FALSE, $real = FALSE, $stat
 	$size = in_array($size, array('big', 'middle', 'small')) ? $size : 'middle';
 	$uid = abs(intval($uid));
 	if(!$staticavatar && !$static) {
-		return $returnsrc ? $ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size : '<img src="'.$ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').'" />';
+		return $returnsrc ? $ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '') : '<img src="'.$ucenterurl.'/avatar.php?uid='.$uid.'&size='.$size.($real ? '&type=real' : '').'" />';
 	} else {
 		$uid = sprintf("%09d", $uid);
 		$dir1 = substr($uid, 0, 3);
@@ -730,6 +730,8 @@ function dgmdate($timestamp, $format = 'dt', $timeoffset = '9999', $uformat = ''
 		$tformat = getglobal('setting/timeformat');
 		$dtformat = $dformat.' '.$tformat;
 		$offset = getglobal('member/timeoffset');
+		$sysoffset = getglobal('setting/timeoffset');
+		$offset = $offset == 9999 ? ($sysoffset ? $sysoffset : 0) : $offset;
 		$lang = lang('core', 'date');
 	}
 	$timeoffset = $timeoffset == 9999 ? $offset : $timeoffset;
@@ -1339,12 +1341,24 @@ function getfocus_rand($module) {
 	return $focusid;
 }
 
-function check_seccode($value, $idhash) {
-	return helper_form::check_seccode($value, $idhash);
+function check_seccode($value, $idhash, $fromjs = 0, $modid = '') {
+	return helper_seccheck::check_seccode($value, $idhash, $fromjs, $modid);
 }
 
 function check_secqaa($value, $idhash) {
-	return helper_form::check_secqaa($value, $idhash);
+	return helper_seccheck::check_secqaa($value, $idhash);
+}
+
+function seccheck($rule, $param = array()) {
+	return helper_seccheck::seccheck($rule, $param);
+}
+
+function make_seccode($seccode = '') {
+	return helper_seccheck::make_seccode($seccode);
+}
+
+function make_secqaa() {
+	return helper_seccheck::make_secqaa();
 }
 
 function adshow($parameter) {
@@ -1485,15 +1499,14 @@ function dmkdir($dir, $mode = 0777, $makeindex = TRUE){
 function dreferer($default = '') {
 	global $_G;
 
-	$default = empty($default) ? $GLOBALS['_t_curapp'] : '';
+	$default = empty($default) && $_ENV['curapp'] ? $_ENV['curapp'].'.php' : '';
 	$_G['referer'] = !empty($_GET['referer']) ? $_GET['referer'] : $_SERVER['HTTP_REFERER'];
 	$_G['referer'] = substr($_G['referer'], -1) == '?' ? substr($_G['referer'], 0, -1) : $_G['referer'];
 
 	if(strpos($_G['referer'], 'member.php?mod=logging')) {
 		$_G['referer'] = $default;
 	}
-	$_G['referer'] = dhtmlspecialchars($_G['referer'], ENT_QUOTES);
-	$_G['referer'] = str_replace('&amp;', '&', $_G['referer']);
+
 	$reurl = parse_url($_G['referer']);
 	if(!empty($reurl['host']) && !in_array($reurl['host'], array($_SERVER['HTTP_HOST'], 'www.'.$_SERVER['HTTP_HOST'])) && !in_array($_SERVER['HTTP_HOST'], array($reurl['host'], 'www.'.$reurl['host']))) {
 		if(!in_array($reurl['host'], $_G['setting']['domain']['app']) && !isset($_G['setting']['domain']['list'][$reurl['host']])) {
@@ -1512,15 +1525,7 @@ function dreferer($default = '') {
 
 function ftpcmd($cmd, $arg1 = '') {
 	static $ftp;
-//Begin Of Upyun Insert Code
-	global $_G;
-	$imgext  = array('jpg', 'jpeg', 'gif', 'png', 'bmp');
-	preg_match("/\.([^\.]+)$/", $arg1, $matches);
-	$isimage = in_array($matches[1], $imgext) ? 1 : 0;
 	$ftpon = getglobal('setting/ftp/on');
-	if(!$_G['cache']['plugin']['upyun_upload']){
-		loadcache('plugin');
-	}
 	if(!$ftpon) {
 		return $cmd == 'error' ? -101 : 0;
 	} elseif($ftp == null) {
@@ -1530,17 +1535,6 @@ function ftpcmd($cmd, $arg1 = '') {
 		return $ftp->error();
 	} elseif($ftp->enabled && !$ftp->connectid) {
 		$ftp->connect();
-	}
-	if($isimage == 0){
-		$ftp->config['bucketname'] = $_G['cache']['plugin']['upyun_upload']['att_bucketname'];
-		$ftp->config['username'] = $_G['cache']['plugin']['upyun_upload']['att_user'];
-		$ftp->config['password'] = $_G['cache']['plugin']['upyun_upload']['att_password'];
-	}
-	else{
-		$ftp->config['bucketname'] = $_G['cache']['plugin']['upyun_upload']['bucketname'];
-		$ftp->config['username'] = $_G['cache']['plugin']['upyun_upload']['user'];
-		$ftp->config['password'] = $_G['cache']['plugin']['upyun_upload']['password'];
-//End Of Upyun Insert Code
 	}
 	switch ($cmd) {
 		case 'upload' : return $ftp->upload(getglobal('setting/attachdir').'/'.$arg1, $arg1); break;
@@ -2049,6 +2043,7 @@ function strhash($string, $operation = 'DECODE', $key = '') {
 
 	return base64_encode(gzcompress($string.$vkey));
 }
+
 
 function dunserialize($data) {
 	if(($ret = unserialize($data)) === false) {
