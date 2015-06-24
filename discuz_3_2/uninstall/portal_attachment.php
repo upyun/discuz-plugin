@@ -57,10 +57,9 @@ if($operation == 'delete') {
 		list($range) = explode('-',(str_replace('bytes=', '', $_SERVER['HTTP_RANGE'])));
 	}
 
-//Begin Of Upyun Insert Code
-	include_once DISCUZ_ROOT . 'source/plugin/upyun/function_upyun.php';
-	upyun_attachment_download($attach, 'portal');
-//End Of Upyun Insert Code
+	if($attach['remote'] && !$_G['setting']['ftp']['hideurl'] && $attach['isimage']) {
+		dheader('location:'.$_G['setting']['ftp']['attachurl'].'portal/'.$attach['attachment']);
+	}
 
 	$filesize = $attach['filesize'];
 	$attach['filename'] = '"'.(strtolower(CHARSET) == 'utf-8' && strexists($_SERVER['HTTP_USER_AGENT'], 'MSIE') ? urlencode($attach['filename']) : $attach['filename']).'"';

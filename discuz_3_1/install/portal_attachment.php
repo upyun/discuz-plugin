@@ -58,28 +58,8 @@ if($operation == 'delete') {
 	}
 
 //Begin Of Upyun Insert Code
-	if($attach['remote'] && !$_G['setting']['ftp']['hideurl']){
-		if(strtolower(CHARSET) == 'gbk'){
-			$attach['filename'] = urlencode(iconv('GBK', 'UTF-8', $attach['filename']));
-		}elseif(strtolower(CHARSET) == 'big5'){
-			$attach['filename'] = urlencode(iconv('BIG5', 'UTF-8', $attach['filename']));
-		}else{
-			$attach['filename'] = urlencode($attach['filename']);
-		}
-		if($attach['isimage']){
-			dheader('location:'.$_G['setting']['ftp']['attachurl'].'portal/'.$attach['attachment'].'?_upd='.$attach['filename']);
-		}
-		else{
-			if($_G['cache']['plugin']['upyun_upload']['att_status']==1){
-				$etime = time()+$_G['cache']['plugin']['upyun_upload']['att_failure_time'];
-				$sign = '?_upt='.substr(md5($_G['cache']['plugin']['upyun_upload']['att_key'].'&'.$etime.'&/portal/'.$attach['attachment']), 12,8).$etime.'&_upd='.$attach['filename'];
-			}
-			else{
-				$sign = '?_upd='.$attach['filename'];
-			}
-			dheader('location:'.$_G['cache']['plugin']['upyun_upload']['att_attachurl'].'/portal/'.$attach['attachment'].$sign);
-		}
-	}
+	include_once DISCUZ_ROOT . 'source/plugin/upyun/function_upyun.php';
+	upyun_attachment_download($attach, 'portal');
 //End Of Upyun Insert Code
 
 	$filesize = $attach['filesize'];
