@@ -1,4 +1,7 @@
 <?php
+if(!defined('IN_DISCUZ')) {
+    exit('Access Denied');
+}
 /**
  * Crocodile - UpYun分块上传 PHP-SDK
  *

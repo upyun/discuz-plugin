@@ -1,4 +1,7 @@
 <?php
+if(!defined('IN_DISCUZ')) {
+    exit('Access Denied');
+}
 
 class UpYunException extends Exception {/*{{{*/
     public function __construct($message, $code, Exception $previous = null) {

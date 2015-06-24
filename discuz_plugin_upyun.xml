@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3]]></item>
-	<item id="Time"><![CDATA[2015-06-18 14:03]]></item>
+	<item id="Time"><![CDATA[2015-06-23 18:01]]></item>
 	<item id="From"><![CDATA[Discuz! Board (http://discuz3.0.com/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -64,8 +64,27 @@
 				<item id="value"><![CDATA[CCkzhMex8wNbBB+WKQ58+y/Ka9Y=]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[5]]></item>
+				<item id="title"><![CDATA[防盗链 TOKEN]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[token]]></item>
+				<item id="type"><![CDATA[text]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[6]]></item>
+				<item id="title"><![CDATA[防盗链过期时间（单位：秒）]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[token_timeout]]></item>
+				<item id="type"><![CDATA[number]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
 		</item>
 		<item id="installfile"><![CDATA[install.php]]></item>
 		<item id="uninstallfile"><![CDATA[uninstall.php]]></item>
+		<item id="checkfile"><![CDATA[check.php]]></item>
 	</item>
 </root>
