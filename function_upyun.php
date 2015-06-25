@@ -57,7 +57,7 @@ function upyun_file_check($files) {
 	}
 	foreach($files as $file_path) {
 		if(! fopen($file_path, 'wb')) {
-			$msg[] = $file_path . ' is not writable; please exec: ' . $file_path;
+			$msg[] = $file_path . ' is not writable; please exec: chmod 666 ' . $file_path;
 		}
 	}
 	if(!empty($msg)) {
@@ -95,4 +95,15 @@ function upyun_gen_sign($path = '/') {
 		$sign = '';
 	}
 	return $sign;
+}
+
+function upyun_get_install_files() {
+	$files = array(
+		DISCUZ_ROOT . "source/module/forum/forum_attachment.php",
+		DISCUZ_ROOT . "source/module/portal/portal_attachment.php",
+		DISCUZ_ROOT . "source/class/discuz/discuz_ftp.php",
+		DISCUZ_ROOT . "source/function/function_attachment.php",
+		DISCUZ_ROOT . "source/function/function_home.php",
+	);
+	return $files;
 }
