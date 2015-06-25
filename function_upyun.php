@@ -78,13 +78,21 @@ function upyun_attachment_download($attach, $module) {
 		} else {
 			$attach['filename'] = urlencode($attach['filename']);
 		}
-
-		if($upyun_config['token'] && $upyun_config['token_timeout']){
-			$etime = time() + $upyun_config['token_timeout'];
-			$sign = '?_upt='.substr(md5($upyun_config['token'].'&'.$etime."&/$module/".$attach['attachment']), 12,8).$etime.'&_upd='.$attach['filename'];
-		} else {
-			$sign = '?_upd='.$attach['filename'];
-		}
-		dheader('location:' . $url . $attach['attachment'].$sign);
+		$path = $module ? "/$module/{$attach['attachment']}" : $attach['attachment'];
+		$sign = upyun_gen_sign($path);
+		dheader('location:' . $url . $attach['attachment'] . "?_upd={$attach['filename']}" . ($sign ? '&_upt=' . $sign : ''));
 	}
+}
+
+function upyun_gen_sign($path = '/') {
+	global $_G;
+	$upyun_config = $_G['cache']['plugin']['upyun'];
+
+	if($upyun_config['token'] && $upyun_config['token_timeout']){
+		$etime = time() + $upyun_config['token_timeout'];
+		$sign = substr(md5($upyun_config['token'].'&'.$etime.'&'.$path), 12,8).$etime;
+	} else {
+		$sign = '';
+	}
+	return $sign;
 }
