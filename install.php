@@ -8,6 +8,8 @@ $version = upyun_get_discuz_version();
 $files = array(
 	DISCUZ_ROOT . "source/module/forum/forum_attachment.php",
 	DISCUZ_ROOT . "source/module/portal/portal_attachment.php",
-	DISCUZ_ROOT . "source/class/discuz/discuz_ftp.php"
+	DISCUZ_ROOT . "source/class/discuz/discuz_ftp.php",
+	DISCUZ_ROOT . "source/function/function_attachment.php",
+	DISCUZ_ROOT . "source/function/function_home.php",
 );
 $finish = upyun_install($plugin_id, $version, $files);
