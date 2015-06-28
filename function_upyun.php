@@ -51,13 +51,23 @@ function upyun_move_file($plugin_id,  $version, $files, $is_install = true) {
 }
 
 function upyun_file_check($files) {
+	global $operation;
 	$msg = array();
 	if(! is_array($files)) {
 		return false;
 	}
+	$md5_check_files = upyun_get_file_md5();
 	foreach($files as $file_path) {
-		if(! fopen($file_path, 'wb')) {
-			$msg[] = $file_path . ' is not writable; please exec: chmod 666 ' . $file_path;
+		$handle = fopen($file_path, 'ab');
+		if(! $handle) {
+			$msg[] = $file_path . ' 不能写入; 请执行命令修改: chmod 666 ' . $file_path;
+		}
+		fclose($handle);
+		$filename = basename($file_path);
+		//仅在安装时校验文件
+		if($operation == 'import' &&
+		   md5_file($file_path) !== $md5_check_files[$filename]) {
+			$msg[] = $file_path . ' 已经被修改，请手动安装。';
 		}
 	}
 	if(!empty($msg)) {
@@ -106,4 +116,38 @@ function upyun_get_install_files() {
 		DISCUZ_ROOT . "source/function/function_home.php",
 	);
 	return $files;
+}
+
+function upyun_get_file_md5() {
+	switch(DISCUZ_VERSION) {
+		case 'X3':
+			return array(
+				'discuz_ftp.php' => 'd2343fb3bea0e16b574a1ea601a9f871',
+				'forum_attachment.php' => 'df9a7925d66ed5aa69e87a713d9aed9e',
+				'function_attachment.php' => '7fd243cd20ec44c2033401535828c6c4',
+				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
+				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
+			);
+			break;
+		case 'X3.1':
+			return array(
+				'discuz_ftp.php' => 'd2343fb3bea0e16b574a1ea601a9f871',
+				'forum_attachment.php' => '207db1330d130f4425ad0bfa5b5064d5',
+				'function_attachment.php' => '7fd243cd20ec44c2033401535828c6c4',
+				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
+				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
+			);
+			break;
+		case 'X3.2':
+			return array(
+				'discuz_ftp.php' => 'd2343fb3bea0e16b574a1ea601a9f871',
+				'forum_attachment.php' => '015002fd98d4ef2d509142d5ac97b256',
+				'function_attachment.php' => '7fd243cd20ec44c2033401535828c6c4',
+				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
+				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
+			);
+			break;
+		default:
+			return array();
+	}
 }

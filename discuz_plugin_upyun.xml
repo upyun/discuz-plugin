@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3]]></item>
-	<item id="Time"><![CDATA[2015-06-25 14:14]]></item>
+	<item id="Time"><![CDATA[2015-06-28 12:17]]></item>
 	<item id="From"><![CDATA[Discuz! Board (http://discuz3.0.com/)]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -38,7 +38,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[bucket_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[test-for-file]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="1">
@@ -47,7 +47,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[operator_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[test]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="2">
@@ -56,7 +56,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[operator_pwd]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[testtest]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="3">
@@ -65,7 +65,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[url]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[http://test-for-file.b0.upaiyun.com]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="4">
@@ -74,7 +74,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[form_api_key]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[CCkzhMex8wNbBB+WKQ58+y/Ka9Y=]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="5">
@@ -83,7 +83,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[token]]></item>
 				<item id="type"><![CDATA[text]]></item>
-				<item id="value"><![CDATA[abc]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 			<item id="6">
@@ -92,7 +92,7 @@
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[token_timeout]]></item>
 				<item id="type"><![CDATA[number]]></item>
-				<item id="value"><![CDATA[600]]></item>
+				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
 		</item>
