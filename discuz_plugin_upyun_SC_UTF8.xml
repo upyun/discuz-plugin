@@ -2,8 +2,8 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3,X3.1,X3.2]]></item>
-	<item id="Time"><![CDATA[2015-06-28 12:17]]></item>
-	<item id="From"><![CDATA[Discuz! Board (http://discuz3.0.com/)]]></item>
+	<item id="Time"><![CDATA[2015-06-29]]></item>
+	<item id="From"><![CDATA[https://www.upyun.com]]></item>
 	<item id="Data">
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
@@ -30,12 +30,12 @@
 				</item>
 			</item>
 		</item>
-		<item id="version"><![CDATA[X3]]></item>
+		<item id="version"><![CDATA[X3,X3.1,X3.2]]></item>
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[0]]></item>
 				<item id="title"><![CDATA[空间名]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[必填]]></item>
 				<item id="variable"><![CDATA[bucket_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -44,7 +44,7 @@
 			<item id="1">
 				<item id="displayorder"><![CDATA[1]]></item>
 				<item id="title"><![CDATA[操作员账号]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[必填]]></item>
 				<item id="variable"><![CDATA[operator_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -53,7 +53,7 @@
 			<item id="2">
 				<item id="displayorder"><![CDATA[2]]></item>
 				<item id="title"><![CDATA[操作员密码]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[必填]]></item>
 				<item id="variable"><![CDATA[operator_pwd]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -62,7 +62,7 @@
 			<item id="3">
 				<item id="displayorder"><![CDATA[3]]></item>
 				<item id="title"><![CDATA[访问域名]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[必填 （可以为 UPYUN 空间的默认访问域名或空间绑定成功域名）]]></item>
 				<item id="variable"><![CDATA[url]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -71,7 +71,7 @@
 			<item id="4">
 				<item id="displayorder"><![CDATA[4]]></item>
 				<item id="title"><![CDATA[表单 API 密钥]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[选填 建议填写，否则将无法激活大文件分块上传]]></item>
 				<item id="variable"><![CDATA[form_api_key]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -80,7 +80,7 @@
 			<item id="5">
 				<item id="displayorder"><![CDATA[5]]></item>
 				<item id="title"><![CDATA[防盗链 TOKEN]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[选填 只能在 UPYUN 空间绑定了论坛域名时，才能设置。否则导致附件无法被访问]]></item>
 				<item id="variable"><![CDATA[token]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
@@ -89,7 +89,7 @@
 			<item id="6">
 				<item id="displayorder"><![CDATA[6]]></item>
 				<item id="title"><![CDATA[防盗链过期时间（单位：秒）]]></item>
-				<item id="description"><![CDATA[]]></item>
+				<item id="description"><![CDATA[选填 说明：如果开启防盗链功能则必须填写大于 0 的值]]></item>
 				<item id="variable"><![CDATA[token_timeout]]></item>
 				<item id="type"><![CDATA[number]]></item>
 				<item id="value"><![CDATA[]]></item>
