@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="BIG5"?>
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3,X3.1,X3.2]]></item>
@@ -8,9 +8,9 @@
 		<item id="plugin">
 			<item id="available"><![CDATA[1]]></item>
 			<item id="adminid"><![CDATA[1]]></item>
-			<item id="name"><![CDATA[UPYUN äº‘åŠ é€Ÿ]]></item>
+			<item id="name"><![CDATA[UPYUN ¶³¥[³t]]></item>
 			<item id="identifier"><![CDATA[upyun]]></item>
-			<item id="description"><![CDATA[UPYUN å®˜æ–¹ Discuz! æ’ä»¶ï¼Œæ”¯æŒ Discuz! X3.0 ä»¥ä¸Šç‰ˆæœ¬]]></item>
+			<item id="description"><![CDATA[UPYUN ©x¤è Discuz! ´¡¥ó¡A¤ä«ù Discuz! X3.0 ¥H¤Wª©¥»]]></item>
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[upyun/]]></item>
 			<item id="copyright"><![CDATA[2005 - 2015 upyun.com, All Rights Reserved.]]></item>
@@ -34,7 +34,7 @@
 		<item id="var">
 			<item id="0">
 				<item id="displayorder"><![CDATA[0]]></item>
-				<item id="title"><![CDATA[ç©ºé—´å]]></item>
+				<item id="title"><![CDATA[ªÅ¶¡¦W]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[bucket_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -43,7 +43,7 @@
 			</item>
 			<item id="1">
 				<item id="displayorder"><![CDATA[1]]></item>
-				<item id="title"><![CDATA[æ“ä½œå‘˜è´¦å·]]></item>
+				<item id="title"><![CDATA[¾Þ§@­û½ã¸¹]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[operator_name]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -52,7 +52,7 @@
 			</item>
 			<item id="2">
 				<item id="displayorder"><![CDATA[2]]></item>
-				<item id="title"><![CDATA[æ“ä½œå‘˜å¯†ç ]]></item>
+				<item id="title"><![CDATA[¾Þ§@­û±K½X]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[operator_pwd]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -61,7 +61,7 @@
 			</item>
 			<item id="3">
 				<item id="displayorder"><![CDATA[3]]></item>
-				<item id="title"><![CDATA[è®¿é—®åŸŸå]]></item>
+				<item id="title"><![CDATA[³X°Ý°ì¦W]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[url]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -70,7 +70,7 @@
 			</item>
 			<item id="4">
 				<item id="displayorder"><![CDATA[4]]></item>
-				<item id="title"><![CDATA[è¡¨å• API å¯†é’¥]]></item>
+				<item id="title"><![CDATA[ªí³æ API ±KÆ_]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[form_api_key]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -79,7 +79,7 @@
 			</item>
 			<item id="5">
 				<item id="displayorder"><![CDATA[5]]></item>
-				<item id="title"><![CDATA[é˜²ç›—é“¾ TOKEN]]></item>
+				<item id="title"><![CDATA[¨¾µsÃì TOKEN]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[token]]></item>
 				<item id="type"><![CDATA[text]]></item>
@@ -88,7 +88,7 @@
 			</item>
 			<item id="6">
 				<item id="displayorder"><![CDATA[6]]></item>
-				<item id="title"><![CDATA[é˜²ç›—é“¾è¿‡æœŸæ—¶é—´ï¼ˆå•ä½ï¼šç§’ï¼‰]]></item>
+				<item id="title"><![CDATA[¨¾µsÃì¹L´Á®É¶¡¡]³æ¦ì¡G¬í¡^]]></item>
 				<item id="description"><![CDATA[]]></item>
 				<item id="variable"><![CDATA[token_timeout]]></item>
 				<item id="type"><![CDATA[number]]></item>
