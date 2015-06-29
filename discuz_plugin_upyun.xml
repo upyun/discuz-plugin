@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
-	<item id="Version"><![CDATA[X3]]></item>
+	<item id="Version"><![CDATA[X3,X3.1,X3.2]]></item>
 	<item id="Time"><![CDATA[2015-06-28 12:17]]></item>
 	<item id="From"><![CDATA[Discuz! Board (http://discuz3.0.com/)]]></item>
 	<item id="Data">
