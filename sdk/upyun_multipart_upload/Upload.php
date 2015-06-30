@@ -85,6 +85,18 @@ class UpyunMultipartUpload {
         $this->blockSize = $size;
     }
 
+    public function getBlockSizeAdaptive($file) {
+        $size = $file->getSize();
+        switch($size) {
+            case $size <= 5 * 1024 * 1024;
+                return 1 * 1024 * 1024;
+            case $size <= 20 * 1024 * 1024;
+                return 2 * 1024 * 1024;
+            default:
+                return 5 * 1024 * 1024;
+        }
+    }
+
     public function setBucketName($bucketName)
     {
         $this->bucketName = $bucketName;
@@ -121,7 +133,7 @@ class UpyunMultipartUpload {
                 }
             }
             $times++;
-        } while(!$this->isUploadSuccess() && $times < 3);
+        } while(!$this->isUploadSuccess() && $times < 5);
 
         if($this->isUploadSuccess()) {
             $result = $this->endUpload();
