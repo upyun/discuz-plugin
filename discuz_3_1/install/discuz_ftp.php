@@ -59,6 +59,7 @@ class discuz_ftp
             $sign = new UpyunMultipartSignature($this->upyun_config['form_api_key']);
             $upload = new UpyunMultipartUpload($sign);
             $upload->setBucketName($this->upyun_config['bucket_name']);
+            $upload->setBlockSize($upload->getBlockSizeAdaptive($file));
             try {
                 $result = $upload->upload($file, array(
                     'path' => '/' . ltrim($target, '/')
@@ -103,10 +104,14 @@ class discuz_ftp
 	}
 
 	function ftp_size($remote_file) {
-        $upyun = new UpYun($this->config['bucketname'],$this->config['username'],$this->config['password'],$this->config['api_access']);
+        $upyun = new UpYun(
+            $this->upyun_config['bucket_name'],
+            $this->upyun_config['operator_name'],
+            $this->upyun_config['operator_pwd']
+		);
 		$remote_file = discuz_ftp::clear($remote_file);
         try{
-            $rsp = $upyun->getFileInfo('/'.$this->config['attachdir'].'/'.$remote_file);
+            $rsp = $upyun->getFileInfo('/' . ltrim($remote_file, '/'));
             return $rsp['x-upyun-file-size'];
         }
         catch(Exception $e){
@@ -119,10 +124,14 @@ class discuz_ftp
 	}
 
 	function ftp_delete($path) {
-        $upyun = new UpYun($this->config['bucketname'],$this->config['username'],$this->config['password'],$this->config['api_access']);
+        $upyun = new UpYun(
+            $this->upyun_config['bucket_name'],
+            $this->upyun_config['operator_name'],
+            $this->upyun_config['operator_pwd']
+		);
         $path = discuz_ftp::clear($path);
         try{
-            $rsp = $upyun->delete('/'.$this->config['attachdir'].'/'.$path);
+            $rsp = $upyun->delete('/' . ltrim($path, '/'));
             return $rsp;
         }
         catch(Exception $e){
@@ -131,12 +140,16 @@ class discuz_ftp
 	}
 
 	function ftp_get($local_file, $remote_file, $mode, $resumepos = 0) {
-        $upyun = new UpYun($this->config['bucketname'],$this->config['username'],$this->config['password'],$this->config['api_access']);
+        $upyun = new UpYun(
+            $this->upyun_config['bucket_name'],
+            $this->upyun_config['operator_name'],
+            $this->upyun_config['operator_pwd']
+		);
 		$remote_file = discuz_ftp::clear($remote_file);
 		$local_file = discuz_ftp::clear($local_file);
         try{
             if($fh = fopen($local_file,'wb')){
-            $rsp = $upyun->readFile('/'.$this->config['attachdir'].'/'.$remote_file,$fh);
+            $rsp = $upyun->readFile('/'. ltrim($remote_file, '/'), $fh);
             fclose($fh);
             return $rsp;
             }else{

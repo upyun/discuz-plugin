@@ -32,7 +32,7 @@ if(!defined('IN_DISCUZ')) {
  */
 class UpyunMultiPartPost {
 
-    public static function post($postData, $url, $retryTimes = 3)
+    public static function post($postData, $url, $retryTimes = 5)
     {
         $delimiter = '-------------' . uniqid();
         $data = '';
