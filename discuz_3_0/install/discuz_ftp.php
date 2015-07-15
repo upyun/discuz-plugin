@@ -39,6 +39,8 @@ class discuz_ftp
 		$this->set_error(0);
         loadcache('plugin');
         $this->upyun_config = getglobal('cache/plugin/upyun');
+        $paths = parse_url($this->upyun_config['url']);
+        $this->upyun_dir = isset($paths['path']) ? rtrim($paths['path'], '/') . '/' : '/';
 		$this->config = !$config ? getglobal('setting/ftp') : $config;
 		$this->enabled = false;
         $this->config['host'] = discuz_ftp::clear($this->config['host']);
@@ -62,7 +64,7 @@ class discuz_ftp
             $upload->setBlockSize($upload->getBlockSizeAdaptive($file));
             try {
                 $result = $upload->upload($file, array(
-                    'path' => '/' . ltrim($target, '/')
+                    'path' => $this->upyun_dir . ltrim($target, '/')
                 ));
                 return $result;
             } catch(Exception $e) {
@@ -78,7 +80,7 @@ class discuz_ftp
                 $this->upyun_config['operator_name'],
                 $this->upyun_config['operator_pwd']
             );
-            $rsp = $upyun->writeFile('/'. ltrim($target, '/'), $fh, true);
+            $rsp = $upyun->writeFile($this->upyun_dir . ltrim($target, '/'), $fh, true);
             return $rsp;
         }
 	}
@@ -111,7 +113,7 @@ class discuz_ftp
 		);
 		$remote_file = discuz_ftp::clear($remote_file);
         try{
-            $rsp = $upyun->getFileInfo('/' . ltrim($remote_file, '/'));
+            $rsp = $upyun->getFileInfo($this->upyun_dir  . ltrim($remote_file, '/'));
             return $rsp['x-upyun-file-size'];
         }
         catch(Exception $e){
@@ -131,7 +133,7 @@ class discuz_ftp
 		);
         $path = discuz_ftp::clear($path);
         try{
-            $rsp = $upyun->delete('/' . ltrim($path, '/'));
+            $rsp = $upyun->delete($this->upyun_dir . ltrim($path, '/'));
             return $rsp;
         }
         catch(Exception $e){
@@ -149,7 +151,7 @@ class discuz_ftp
 		$local_file = discuz_ftp::clear($local_file);
         try{
             if($fh = fopen($local_file,'wb')){
-            $rsp = $upyun->readFile('/'. ltrim($remote_file, '/'), $fh);
+            $rsp = $upyun->readFile($this->upyun_dir . ltrim($remote_file, '/'), $fh);
             fclose($fh);
             return $rsp;
             }else{
