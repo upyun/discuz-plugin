@@ -80,7 +80,7 @@
 			<item id="5">
 				<item id="displayorder"><![CDATA[5]]></item>
 				<item id="title"><![CDATA[防盜鏈 TOKEN]]></item>
-				<item id="description"><![CDATA[選填 只能在 UPYUN 空間綁定了論壇域名時，才能設置。否則導致附件無法被訪問]]></item>
+				<item id="description"><![CDATA[選填 只能在 UPYUN 空間綁定了和論壇根域名相同 的子域名時，才能設置，否則導致附件無法被訪問。例如論壇域名為 www.discuz.com 時，如果 UPYUN 空間訪問域名為 static.discuz.com 或其他類似 **.discuz.com 格式的域名則可以使用]]></item>
 				<item id="variable"><![CDATA[token]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>

@@ -80,7 +80,7 @@
 			<item id="5">
 				<item id="displayorder"><![CDATA[5]]></item>
 				<item id="title"><![CDATA[防盗链 TOKEN]]></item>
-				<item id="description"><![CDATA[选填 只能在 UPYUN 空间绑定了论坛域名时，才能设置。否则导致附件无法被访问]]></item>
+				<item id="description"><![CDATA[选填 只能在 UPYUN 空间绑定了和论坛根域名相同 的子域名时，才能设置，否则导致附件无法被访问。例如论坛域名为 www.discuz.com 时，如果 UPYUN 空间访问域名为 static.discuz.com 或其他类似 **.discuz.com 格式的域名则可以使用]]></item>
 				<item id="variable"><![CDATA[token]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
