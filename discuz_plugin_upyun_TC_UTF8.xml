@@ -62,7 +62,7 @@
 			<item id="3">
 				<item id="displayorder"><![CDATA[3]]></item>
 				<item id="title"><![CDATA[訪問域名]]></item>
-				<item id="description"><![CDATA[必填 （可以為 UPYUN 空間的預設訪問域名或空間綁定成功域名）]]></item>
+				<item id="description"><![CDATA[必填 http:// 或 https:// 開頭（可以為 UPYUN 空間的預設訪問域名或空間綁定成功域名）]]></item>
 				<item id="variable"><![CDATA[url]]></item>
 				<item id="type"><![CDATA[text]]></item>
 				<item id="value"><![CDATA[]]></item>
