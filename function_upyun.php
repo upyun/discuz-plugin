@@ -66,7 +66,7 @@ function upyun_file_check($files) {
 		$filename = basename($file_path);
 		//仅在安装时校验文件
 		if($operation == 'import' &&
-		   md5_file($file_path) !== $md5_check_files[$filename]) {
+		   upyun_md5_file($file_path) !== $md5_check_files[$filename]) {
 			$msg[] = $file_path . ' 已经被修改，请手动安装。';
 		}
 	}
@@ -151,3 +151,18 @@ function upyun_get_file_md5() {
 			return array();
 	}
 }
+
+/**
+ * 将换行符统一处理为 \r\n 再生成 md5
+ * @param $path: 文件路径
+ * @return bool|string
+ */
+function upyun_md5_file($path) {
+	$f = file_get_contents($path);
+	if(!$f) {
+		return false;
+	}
+
+	return md5(preg_replace("/(?<!\r)\n/", "\r\n", $f));
+}
+
