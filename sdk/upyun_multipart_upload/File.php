@@ -53,7 +53,7 @@ class UpyunMultiPartFile {
     public function __construct($path){
         $this->realPath = realpath($path);
         if(!($this->realPath && file_exists($this->realPath))) {
-            throw new Exception('upload file not exists');
+            throw new Exception('upload file not exists: ' . $path);
         }
         $this->size = filesize($path);
         $this->md5FileHash = md5_file($this->realPath);
