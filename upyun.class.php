@@ -10,4 +10,10 @@ class plugin_upyun {
 		$cookie_domain = substr($_SERVER['SERVER_NAME'], strpos($_SERVER['SERVER_NAME'], '.'));
 		setcookie('_upt', upyun_gen_sign(), $_SERVER['REQUEST_TIME'] + 180, '/', $cookie_domain);
 	}
+
+	function common() {
+		global $_G;
+		$upyun_config = $_G['cache']['plugin']['upyun'];
+		$_G['setting']['ftp']['attachurl'] = rtrim($upyun_config['url'], '/') . '/';
+	}
 }
