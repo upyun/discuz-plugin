@@ -17,3 +17,6 @@ class plugin_upyun {
 		$_G['setting']['ftp']['attachurl'] = rtrim($upyun_config['url'], '/') . '/';
 	}
 }
+
+//mobile plugin is used for mobile access
+class mobileplugin_upyun extends plugin_upyun{}

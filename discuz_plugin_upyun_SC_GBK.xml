@@ -2,7 +2,7 @@
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
 	<item id="Version"><![CDATA[X3,X3.1,X3.2]]></item>
-	<item id="Time"><![CDATA[2015-06-29]]></item>
+	<item id="Time"><![CDATA[2015-08-23]]></item>
 	<item id="From"><![CDATA[https://www.upyun.com]]></item>
 	<item id="Data">
 		<item id="plugin">
@@ -14,9 +14,21 @@
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[upyun/]]></item>
 			<item id="copyright"><![CDATA[2005 - 2015 upyun.com, All Rights Reserved.]]></item>
-			<item id="version"><![CDATA[1.0]]></item>
+			<item id="version"><![CDATA[1.1]]></item>
 			<item id="__modules">
 				<item id="0">
+					<item id="name"><![CDATA[upyun]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[28]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
 					<item id="name"><![CDATA[upyun]]></item>
 					<item id="menu"><![CDATA[]]></item>
 					<item id="url"><![CDATA[]]></item>
