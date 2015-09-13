@@ -56,7 +56,11 @@ class discuz_ftp
 	}
 
 	function upload($source, $target) {
-        $file = new UpyunMultiPartFile($source);
+        try {
+            $file = new UpyunMultiPartFile($source);
+        } catch (Exception $e) {
+            return 0;
+        }
         if($file->getSize() > 1024 * 1024 && $this->upyun_config['form_api_key']) {
             $sign = new UpyunMultipartSignature($this->upyun_config['form_api_key']);
             $upload = new UpyunMultipartUpload($sign);
