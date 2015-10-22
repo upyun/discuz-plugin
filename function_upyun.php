@@ -115,6 +115,7 @@ function upyun_get_install_files() {
 		DISCUZ_ROOT . "source/function/function_attachment.php",
 		DISCUZ_ROOT . "source/function/function_home.php",
 		DISCUZ_ROOT . "source/module/forum/forum_image.php",
+		DISCUZ_ROOT . "source/function/function_post.php",
 	);
 	return $files;
 }
@@ -129,6 +130,7 @@ function upyun_get_file_md5() {
 				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
 				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
 				'forum_image.php' => '044aabe6823ceff3bd01b082776d5fe5',
+				'function_post.php' => '3c9043052af1e66010dffd9874257cd9',
 			);
 			break;
 		case 'X3.1':
@@ -139,6 +141,7 @@ function upyun_get_file_md5() {
 				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
 				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
 				'forum_image.php' => '044aabe6823ceff3bd01b082776d5fe5',
+				'function_post.php' => '3c9043052af1e66010dffd9874257cd9',
 			);
 			break;
 		case 'X3.2':
@@ -149,6 +152,7 @@ function upyun_get_file_md5() {
 				'function_home.php' => 'd3b81c420b7e98158fa2a818399969b1',
 				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
 				'forum_image.php' => '044aabe6823ceff3bd01b082776d5fe5',
+				'function_post.php' => '3c9043052af1e66010dffd9874257cd9',
 			);
 			break;
 		default:
