@@ -82,6 +82,15 @@
 			</item>
 			<item id="4">
 				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[本地備份]]></item>
+				<item id="description"><![CDATA[開啟本地備份時，本地伺服器將保留一份圖片備份]]></item>
+				<item id="variable"><![CDATA[local_backup]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[5]]></item>
 				<item id="title"><![CDATA[表單 API 密鑰]]></item>
 				<item id="description"><![CDATA[選填 建議填寫，否則將無法激活大檔案分塊上傳]]></item>
 				<item id="variable"><![CDATA[form_api_key]]></item>
@@ -89,8 +98,8 @@
 				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
-			<item id="5">
-				<item id="displayorder"><![CDATA[5]]></item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[6]]></item>
 				<item id="title"><![CDATA[防盜鏈 TOKEN]]></item>
 				<item id="description"><![CDATA[選填 只能在 UPYUN 空間綁定了和論壇根域名相同 的子域名時，才能設置，否則導致附件無法被訪問。例如論壇域名為 www.discuz.com 時，如果 UPYUN 空間訪問域名為 static.discuz.com 或其他類似 **.discuz.com 格式的域名則可以使用]]></item>
 				<item id="variable"><![CDATA[token]]></item>
@@ -98,8 +107,8 @@
 				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
-			<item id="6">
-				<item id="displayorder"><![CDATA[6]]></item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[7]]></item>
 				<item id="title"><![CDATA[防盜鏈過期時間（單位：秒）]]></item>
 				<item id="description"><![CDATA[選填 說明：如果開啟防盜鏈功能則必須填寫大於 0 的值]]></item>
 				<item id="variable"><![CDATA[token_timeout]]></item>

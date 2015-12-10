@@ -82,6 +82,15 @@
 			</item>
 			<item id="4">
 				<item id="displayorder"><![CDATA[4]]></item>
+				<item id="title"><![CDATA[本地备份]]></item>
+				<item id="description"><![CDATA[开启本地备份时，本地服务器将保留一份图片备份]]></item>
+				<item id="variable"><![CDATA[local_backup]]></item>
+				<item id="type"><![CDATA[radio]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="5">
+				<item id="displayorder"><![CDATA[5]]></item>
 				<item id="title"><![CDATA[表单 API 密钥]]></item>
 				<item id="description"><![CDATA[选填 建议填写，否则将无法激活大文件分块上传]]></item>
 				<item id="variable"><![CDATA[form_api_key]]></item>
@@ -89,8 +98,8 @@
 				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
-			<item id="5">
-				<item id="displayorder"><![CDATA[5]]></item>
+			<item id="6">
+				<item id="displayorder"><![CDATA[6]]></item>
 				<item id="title"><![CDATA[防盗链 TOKEN]]></item>
 				<item id="description"><![CDATA[选填 只能在 UPYUN 空间绑定了和论坛根域名相同 的子域名时，才能设置，否则导致附件无法被访问。例如论坛域名为 www.discuz.com 时，如果 UPYUN 空间访问域名为 static.discuz.com 或其他类似 **.discuz.com 格式的域名则可以使用]]></item>
 				<item id="variable"><![CDATA[token]]></item>
@@ -98,8 +107,8 @@
 				<item id="value"><![CDATA[]]></item>
 				<item id="extra"><![CDATA[]]></item>
 			</item>
-			<item id="6">
-				<item id="displayorder"><![CDATA[6]]></item>
+			<item id="7">
+				<item id="displayorder"><![CDATA[7]]></item>
 				<item id="title"><![CDATA[防盗链过期时间（单位：秒）]]></item>
 				<item id="description"><![CDATA[选填 说明：如果开启防盗链功能则必须填写大于 0 的值]]></item>
 				<item id="variable"><![CDATA[token_timeout]]></item>
