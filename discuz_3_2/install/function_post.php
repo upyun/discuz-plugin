@@ -131,7 +131,9 @@ function ftpupload($aids, $uid = 0) {
 			$attach['ext'] = fileext($attach['filename']);
 			if(((!$_G['setting']['ftp']['allowedexts'] && !$_G['setting']['ftp']['disallowedexts']) || ($_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) || ($_G['setting']['ftp']['disallowedexts'] && !in_array($attach['ext'], $_G['setting']['ftp']['disallowedexts']) && (!$_G['setting']['ftp']['allowedexts'] || $_G['setting']['ftp']['allowedexts'] && in_array($attach['ext'], $_G['setting']['ftp']['allowedexts'])) )) && (!$_G['setting']['ftp']['minsize'] || $attach['filesize'] >= $_G['setting']['ftp']['minsize'] * 1024)) {
 				if(ftpcmd('upload', 'forum/'.$attach['attachment']) && (!$attach['thumb'] || ftpcmd('upload', 'forum/'.getimgthumbname($attach['attachment'])))) {
-					dunlink($attach);
+					if(!$_G['cache']['plugin']['upyun']['local_backup']) {
+						dunlink($attach);
+					}
 					$remoteaids[$attach['aid']] = $attach['aid'];
 					if($attach['picid']) {
 						$pics[] = $attach['picid'];
