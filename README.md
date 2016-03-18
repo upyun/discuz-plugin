@@ -38,3 +38,7 @@
   在安装时，插件会提前检查这个五个文件是否被修改，防止覆盖您的自定义修改。建议您将自定义修改的系统文件先备份，然后使用 Discuz 相应版本的原文件暂时代替完成安装（例如 Discuz 3.1 版本的原文件可以通过 source/plugin/upyun/discuz_3_1/uninstall/ 目录下获取。 uninstall 目录保存了各个版本的系统原文件）。文件还原后，重新安装即可。安装完成后，可以将您的自定义修改再追加到新的文件中。（如果卸载插件，该文件会被还原为 Discuz 原文件，所以卸载完成后需要重新追加本地修改）。
   
   代码中标记了`Begin of Insert UPYUN Code`表示本插件修改追加的内容
+
+### 视频教程
+
+URL:https://techs.b0.upaiyun.com/videos/cdnpage/Discuz.html
