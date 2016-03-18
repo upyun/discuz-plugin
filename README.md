@@ -7,6 +7,10 @@
 
 *不支持表单直接上传*
 
+### 视频教程
+
+URL:https://techs.b0.upaiyun.com/videos/cdnpage/Discuz.html
+
 ### 安装说明
 
 1. 下载插件([点击这里](https://github.com/upyun/discuz-plugin/archive/master.zip))放到 Discuz `source/plugin` 目录下，并重命名目录为 `upyun`
@@ -39,6 +43,3 @@
   
   代码中标记了`Begin of Insert UPYUN Code`表示本插件修改追加的内容
 
-### 视频教程
-
-URL:https://techs.b0.upaiyun.com/videos/cdnpage/Discuz.html
