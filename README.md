@@ -9,7 +9,7 @@
 
 ### 视频教程
 
-URL:https://techs.b0.upaiyun.com/videos/cdnpage/Discuz.html
+https://techs.b0.upaiyun.com/videos/cdnpage/Discuz.html
 
 ### 安装说明
 
