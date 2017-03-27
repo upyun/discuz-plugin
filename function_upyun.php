@@ -28,7 +28,10 @@ function upyun_get_discuz_version() {
 			break;
 		case 'X3.2':
 			$version = 'discuz_3_2';
-			break;
+            break;
+        case 'X3.3':
+			$version = 'discuz_3_3';
+            break;
 		default:
 			$version = false;
 	}
@@ -154,7 +157,18 @@ function upyun_get_file_md5() {
 				'forum_image.php' => '044aabe6823ceff3bd01b082776d5fe5',
 				'function_post.php' => '3c9043052af1e66010dffd9874257cd9',
 			);
-			break;
+            break;
+        case 'X3.3':
+			return array(
+				'discuz_ftp.php' => 'd2343fb3bea0e16b574a1ea601a9f871',
+				'forum_attachment.php' => '015002fd98d4ef2d509142d5ac97b256',
+				'forum_image.php' => '044aabe6823ceff3bd01b082776d5fe5',
+				'function_attachment.php' => '9d5abc171193da52e2cebcf12f17500a',
+				'function_home.php' => '3f4f0ced4056653bce3d976708d6858a',
+				'function_post.php' => '21f02c43de97c3685e774fd8b7f7ac9e',
+				'portal_attachment.php' => 'e5fc1bbd71d087e81243f45e61219d50',
+			);
+            break;
 		default:
 			return array();
 	}
