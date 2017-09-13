@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <root>
 	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
-	<item id="Version"><![CDATA[X3,X3.1,X3.2,X3.3]]></item>
-	<item id="Time"><![CDATA[2017-03-28]]></item>
+	<item id="Version"><![CDATA[X3,X3.1,X3.2,X3.3,X3.4]]></item>
+	<item id="Time"><![CDATA[2017-09-13]]></item>
 	<item id="From"><![CDATA[https://www.upyun.com]]></item>
 	<item id="Data">
 		<item id="plugin">
